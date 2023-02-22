@@ -7,4 +7,13 @@
 def hello():
     print("hello world")
 
+
+def demandeage():
+    age = int(input("Quel age as-tu ?"))
+    if age < 18:
+        print("Tu es mineur")
+    else:
+        print("Tu es majeur")
+
 hello()
+demandeage()
