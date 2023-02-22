@@ -8,6 +8,10 @@ def hello():
     print("hello world")
 
 
+def fonctionALAKON2():
+    print("sqrt(82)")
+
+
 def demandeage():
     age = int(input("Quel age as-tu ?"))
     if age < 18:
