@@ -7,4 +7,7 @@
 def hello():
     print("hello world")
 
+def fonctionALAKON():
+    print("sqrt(82)")
+
 hello()
