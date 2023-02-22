@@ -10,4 +10,7 @@ def hello():
 def fonctionALAKON():
     print("sqrt(82)")
 
+def demandeage():
+    print("lol, y'a collision")
+
 hello()
