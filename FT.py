@@ -4,28 +4,21 @@ from tkinter import *
 #### Fonction de recherche dans la liste déroulante
 ###
 
-def recherche(j)  :
+def recherche(a)  :
     if type(saisie.get())==str : 
         if len(saisie.get())>0 : # Si il y a qque chose de rentré
-            lb.delete(0,len(ListePG)) # On commence par tout effacer
-            for i in range (0,len(ListePG)) :
-                if occurencePG(ListePG[i],saisie.get())>0 : # Et on ajoute toutes les occurences
-                    lb.insert('end',ListePG[i][:-1])
+            listeaffiche.delete(0,len(ListePG)) # On commence par tout effacer
+            for i in range (0,len(ListePG)) : # On se ballade dans notre liste de PG
+                sommeoccurences=0
+                for j in saisie.get().split(" ") : # On sépare la recherche du FT en plusieurs strings
+                    if ListePG[i].find(j)!=-1 : # Si il y a une occurence, on incrémente notre compteur
+                        sommeoccurences=sommeoccurences+1
+                if sommeoccurences >= len(saisie.get().split(" ")) : # On vérifie qu'il y ai autant d'occurences que de mots du FT
+                    listeaffiche.insert('end',replace(ListePG[i][:-1]," ")) # On insère les occurences en retirant les ;
         else : # Au cas où le FT revient à une entrée nulle, on refresh la liste
-            lb.delete(0,len(ListePG))
+            listeaffiche.delete(0,len(ListePG)) # On supprime les non-occurences
             for item in ListePG :
-                lb.insert('end',item[:-1])
-    pass
-
-def occurencePG(chaine,mot) : # Fonction d'occurence utile pour la recherche
-    apparitions=0
-    for i in range (0,len(chaine)-len(mot)+1) :
-        j=0
-        while (j<len(mot)) and (chaine[i+j]==mot[j]) :
-            j=j+1
-            if (j==len(mot)) :
-                apparitions=apparitions+1
-    return apparitions
+                listeaffiche.insert('end',item[:-1])
 
 alignx=100 # alignement des wedgets
 
@@ -49,14 +42,14 @@ label1.place(x=alignx,y=10)
 #### Création de la liste déroulande des PG
 ###
 
-lb = Listbox(root, listvariable=StringVar()) # Liste des PG correspondants
+listeaffiche = Listbox(root, listvariable=StringVar()) # Liste des PG correspondants
 PROMS=open("PROMS.csv", "r")
 ListePG=PROMS.readlines() # On importe tout nos PG dans une liste
 PROMS.close()
 
 for item in ListePG: # On se déplace dans notre liste pour les ajouter à notre liste déroulante
-    lb.insert('end',item[:-1])
-lb.place(x=alignx,y=100)
+    listeaffiche.insert('end',item[:-1])
+listeaffiche.place(x=alignx,y=100)
 
 ###
 #### Création de la zone de saisie par le FT
