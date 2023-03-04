@@ -1,4 +1,11 @@
-from tkinter import* 
+'''
+-Fonctions global:
+Page_vote
+entrees
+nb_select
+'''
+
+from tkinter import*
 from random import*
 
 long,larg=800,480 #taille en pxl de l'ecran, a modifier selon ecran
