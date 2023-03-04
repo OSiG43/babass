@@ -1,0 +1,55 @@
+#Main()
+import FT.py
+import PG.py
+def initialisation():
+    l_var_global=[CMD]
+    Dicti_résultat={}
+    pass
+def afficher_liste():
+    
+    pass
+if CMD==1 :
+    afficher_liste()# code pour chercher dans les fichier et afficher une liste
+
+else:
+    dossier_vote=creation_vote()# donne le nom du vote apparaissant dans les fichiers, la matrice des résultats initialisée avec les noms des candidats,le chemin vers le csv contenant la liste de proms (SOUS FORME DE DICTIONNAIRE)
+    nom_vote,liste_résultat,liste_votants=dossier_vote
+    for i in liste votant:
+        dicti_résultat{i} =0
+    #à ce stade la c'est censé etre pret à lancer le vote
+
+    """
+    code de vote
+    boucle while:
+    alternance de fonction FT vérification et PG
+
+    FT
+    Entrée:Rien
+    Sortie: nom  du votant
+
+
+    PG
+    Entrée:Liste des candidats, nom du PG votant, nombre de vote
+    Sortie: renvoie une liste stockée en global avec le vote du PG qui passe.
+"""
+while verification :
+    PG(PROMS, nom, nb_de_vote)
+    FT()
+    incrémentation_résultat (SortiePG)
+
+
+"""
+    incrémente la matrice des résultats ici un dictionnaire nommé Dicti_résultat
+    """
+    
+    
+    def incrémentation_résultat (SortiePG):
+        #liste de nom ou de valeurs avec les choix du votant
+        for i in Sortie PG:
+            Dicti_résultat[i]=Dicti_résultat[i]+1
+
+
+
+
+
+
