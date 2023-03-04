@@ -24,6 +24,7 @@ def Ouvre_Page_vote(Liste_vote,Nom,nb_vote):
     Page_vote.configure(bg ="#F1EA9C")#je change le background en jaune beige avec comme code hexa #F1EA9C, on peut changer si ça plait pas mais j'aime bien
     Page_vote.title("Page de vote")#je change le nom de la page, useless parce que la page sera en plein ecran mais au cas ou
     Page_vote.geometry(str(long)+"x"+str(larg))# je choisi la taille que doit prendre la page en s'ouvrant et je l'accorde pour qu'elle prenne la taille de l'ecran en entier
+    Page_vote.attributes('-fullscreen', True)#mets en plein écran
     shuffle(Liste_vote)
 
     '''
