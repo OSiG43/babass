@@ -8,7 +8,6 @@ Définition de la fonction affichant le résultat final d'un vote sur l'écran F
 Elle prend comme parametre le dictionnaire contenant les résultats du vote 
 """
 
-
 def affichage_resultat(Resultat):
     """
     Création de la fenètre d'affichage
@@ -62,7 +61,6 @@ def affichage_resultat(Resultat):
     Pour finir, j'ai ajouté un boutton pour pouvoir fermer la fentre d'affichage du vote.
     Pour ça j'ai du définir une fonction pour que cela fonctionne (merci Ylan)
     """
-
     def quitter():
         def faire():
             fenetre.destroy()
