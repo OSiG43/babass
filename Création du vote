@@ -1,0 +1,119 @@
+import csv
+from tkinter import *
+import os
+global sortie_création_vote
+sortie_création_vote=["nom du vote","chemin du fichier des votants","chemin du fichier des candidats"]
+""" commande global
+ sortie_création_vote
+filename_création_vote
+filename_création_vote2
+ """
+
+### explorateur de fichier
+# Python program to create
+# a file explorer in Tkinter
+
+
+# import filedialog module
+from tkinter import filedialog
+
+# Function for opening the
+# file explorer root_vote
+def browseFiles():
+    global filename_création_vote
+    filename_création_vote = filedialog.askopenfilename(initialdir = "C:/Users/guill/Desktop/Rezal",
+                                          title = "Selectionner un fichier",
+                                          filetypes = (("all files",
+                                                        "*.*"),
+                                                       ("Text files",
+                                                        "*.txt*")))
+
+    # Change label contents
+    label_file_explorer.configure(text="Fichier liste des votants: "+filename_création_vote)
+
+def browseFiles2():
+    global filename_création_vote2
+    filename_création_vote2 = filedialog.askopenfilename(initialdir = "C:/Users/guill/Desktop/Rezal",
+                                          title = "Selectionner un fichier",
+                                          filetypes = (("all files",
+                                                        "*.*"),
+                                                       ("Text files",
+                                                        "*.txt*")))
+
+    # Change label contents
+    label_file_explorer2.configure(text="Fichier liste des candidats: "+filename_création_vote2)
+
+def validation_du_choix ():
+    sortie_création_vote=[saisie_création_vote.get(),filename_création_vote,filename_création_vote2]
+    print(sortie_création_vote)
+
+
+# Create the root root_vote
+root_vote = Tk()
+root_vote.configure(background='#222222')
+alignx=100
+
+# Set root_vote title
+root_vote.title('File Explorer')
+
+# Set root_vote size
+root_vote.geometry("500x500")
+
+#Set root_vote background color
+root_vote.config(background = "white")
+
+# Create a File Explorer label
+label_file_explorer = Label(root_vote,
+                            text = "Fichier liste des votants: ",
+                            width = 100, height = 4,
+                            fg = "blue")
+        #"""Je crée ici en double les fenetres pour prendre des infos et explorer les fichiers"""
+label_file_explorer2 = Label(root_vote,
+                            text = "Fichier liste des candidats: ",
+                            width = 100, height = 4,
+                            fg = "blue")
+
+#de même avec les boutons
+button_explore = Button(root_vote,
+                        text = "Sélection de la liste des votants",
+                        command = browseFiles)
+button_explore2 = Button(root_vote,
+                        text = "Sélection de la liste des candidats",
+                        command = browseFiles2)
+
+button_valider= Button(root_vote,
+                        text = "Valider",
+                        command = validation_du_choix)
+button_exit = Button(root_vote,
+                     text = "Exit",
+                     command = exit)
+
+# Grid method is chosen for placing
+# the widgets at respective positions
+# in a table like structure by
+# specifying rows and columns
+label_file_explorer.grid(column = 1, row = 4)
+button_explore.grid(column = 1, row = 5)
+
+label_file_explorer2.grid(column = 1, row = 6)
+button_explore2.grid(column = 1, row = 7)
+
+button_exit.grid(column = 1,row = 100)
+
+button_valider.grid(column = 1,row = 99)
+root_vote.configure(background='#222222')
+
+
+label1=Label(root_vote,text = "Nom du vote",bg='#222222',fg='#FFFFFF',font=20) # Juste un titre
+label1.grid(column = 1,row = 1)
+
+saisie_création_vote = Entry() # Zone d'entrée du nom du vote
+saisie_création_vote.grid(column = 1,row = 2)
+
+
+# Let the root_vote wait for any events
+print(sortie_création_vote)
+root_vote.mainloop()
+
+
+
