@@ -4,7 +4,7 @@ from tkinter import *
 #### Fonction de recherche dans la liste déroulante
 ###
 
-def recherche(a)  :
+def rechercheoccurrence(a)  :
     if type(saisie.get())==str : 
         if len(saisie.get())>0 : # Si il y a qque chose de rentré
             listeaffiche.delete(0,len(ListePG)) # On commence par tout effacer
@@ -27,43 +27,43 @@ alignx=100 # alignement des wedgets
 #### Création de la fenêtre
 ###
 
-root=Tk() 
-root.configure(background='#222222') # Fond
+#rootft=Tk() 
+#rootft.configure(background='#222222') # Fond
 
 
 ###
 #### Création du titre
 ###
+def recherche(a) :
+    label1=Label(rootft,text = "Choisir le PG votant",bg='#222222',fg='#FFFFFF',font=20) # Juste un titre
+    label1.place(x=alignx,y=10)
 
-label1=Label(root,text = "Choisir le PG votant",bg='#222222',fg='#FFFFFF',font=20) # Juste un titre
-label1.place(x=alignx,y=10)
+    ###
+    #### Création de la liste déroulande des PG
+    ###
 
-###
-#### Création de la liste déroulande des PG
-###
+    listeaffiche = Listbox(rootft, listvariable=StringVar()) # Liste des PG correspondants
+    PROMS=open("PROMS.csv", "r")
+    ListePG=PROMS.readlines() # On importe tout nos PG dans une liste
+    PROMS.close()
 
-listeaffiche = Listbox(root, listvariable=StringVar()) # Liste des PG correspondants
-PROMS=open("PROMS.csv", "r")
-ListePG=PROMS.readlines() # On importe tout nos PG dans une liste
-PROMS.close()
+    for item in ListePG: # On se déplace dans notre liste pour les ajouter à notre liste déroulante
+        listeaffiche.insert('end',item[:-1])
+    listeaffiche.place(x=alignx,y=100)
 
-for item in ListePG: # On se déplace dans notre liste pour les ajouter à notre liste déroulante
-    listeaffiche.insert('end',item[:-1])
-listeaffiche.place(x=alignx,y=100)
+    ###
+    #### Création de la zone de saisie par le FT
+    ###
 
-###
-#### Création de la zone de saisie par le FT
-###
+    saisie = Entry(rootft) # Zone d'entrée de la bucque
+    saisie.place(x=alignx,y=50)
+    saisie.bind_all('<Key>', rechercheoccurrence) # Quand il y a une touche pressée on lance la fonction recherche
 
-saisie = Entry() # Zone d'entrée de la bucque
-saisie.place(x=alignx,y=50)
-saisie.bind_all('<Key>', recherche) # Quand il y a une touche pressée on lance la fonction recherche
+    ###
+    #### Boutton d'annulation'
+    ###
 
-###
-#### Boutton d'annulation'
-###
+    bouton = Button(rootft,text = "Annuler le dernier vote")
+    bouton.place(x=alignx,y=300)
 
-bouton = Button(text = "Annuler le dernier vote")
-bouton.place(x=alignx,y=300)
-
-root.mainloop()
+#root.mainloop()
