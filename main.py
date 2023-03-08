@@ -1,4 +1,5 @@
 from tkinter import *
+from FT.py import *
 
 """Le fichier CSV doit etre au format nom;prenom;bucque;fam's   
 LES SEPARATEURS SONT DES POINTS6virgules"""
@@ -16,6 +17,9 @@ PG_pas_votés=[PG8,PG9,PG10] #liste de tous ceux qui ont pas voté
 
 
 """
+
+rootft=Tk() #fenêtre côté FT
+rootft.configure(background='#222222') # Fond
 
 
 
@@ -43,9 +47,13 @@ PG_pas_votés=[PG8,PG9,PG10] #liste de tous ceux qui ont pas voté
 # entree une chaine de caractere
 #sortie tous les PG qui ont la chaine de caractère contenue
 
-
-def recherche()  : #permet de faire une recherche d'un nom, prenom, bucque ou fam's
-    pass
+while menu()==False : #affichage du menu côté FT permettant de récupérer les boutons cochés côté FT, False si rien n'est côché
+    
+if menu()=="creer" :
+    while entreecreer()==False : #page d'entrée du nom du vote et des candidats, retourne faux tant que rien n'est fait
+        #créer un dossier et des fichiers dans la clef
+        #commencer le vote
+   while recherche()!="Fin" #à continuer
 
 
 # Fonction qui ajoute le vote du pg et enleve son nom des gens qui n'ont pas votés
@@ -71,3 +79,5 @@ def sauvegarde():
 def annulation():
     pass
 ""
+
+rootft.mainloop()
